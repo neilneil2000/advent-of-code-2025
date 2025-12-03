@@ -6,6 +6,8 @@ POSITIONS = 100
 
 def main():
     directions = list(map(lambda x: [x[0], int(x[1:])], input_data.splitlines()))
+
+    # Part 1
     dial = 50
     zeroes = 0
     for direction, steps in directions:
@@ -16,7 +18,7 @@ def main():
         if not dial:
             zeroes += 1
 
-    print(zeroes)
+    print(f"Part 1 Answer: {zeroes}")
 
 
 if __name__ == "__main__":
