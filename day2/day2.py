@@ -8,6 +8,13 @@ def is_valid(value: str) -> bool:
     return value[: len(value) // 2] != value[len(value) // 2 :]
 
 
+def is_valid_2(value: str) -> bool:
+    """Returns False if string is made up of repeating substrings"""
+    if len(value) % 2:
+        return True
+    return value[: len(value) // 2] != value[len(value) // 2 :]
+
+
 def get_invalid_ids(start: int, end: int) -> list[int]:
     """Return list of invalid IDs"""
     invalid_ids = []
