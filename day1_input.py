@@ -1,3 +1,23 @@
+test_input_data = """L68
+L30
+R48
+L5
+R60
+L55
+L1
+L99
+R14
+L82"""
+
+neil_input_data = """R50
+L50
+R1
+R100
+R500
+L100
+L500"""
+
+
 input_data = """R29
 R41
 R8
