@@ -28,7 +28,6 @@ def get_invalid_ids(start: int, end: int, check_function: callable) -> list[int]
         if check_function(str(value)):
             continue
         invalid_ids.append(value)
-    print(invalid_ids)
     return invalid_ids
 
 
