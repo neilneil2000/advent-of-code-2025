@@ -1,6 +1,6 @@
-from day2_input import input_data as input_data
-
 import textwrap
+
+from day2_input import input_data as input_data
 
 
 def is_valid(value: str) -> bool:
@@ -15,8 +15,7 @@ def is_valid_2(value: str) -> bool:
     for i in range(1, len(value) // 2 + 1):
         if len(value) % i:
             continue
-        check = set(textwrap.wrap(value, i))
-        if len(check) == 1:
+        if len(set(textwrap.wrap(value, i))) == 1:
             return False
     return True
 
