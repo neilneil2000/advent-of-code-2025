@@ -28,7 +28,14 @@ def main():
     PAPER = "@"
     paper = get_locations_in_grid(PAPER, input_data)
     accessible = {loc for loc in paper if number_of_neighbours(loc, paper) < 4}
-    print(len(accessible))
+    print(f"Part 1 Answer: {len(accessible)}")
+
+    total = 0
+    while accessible:
+        total += len(accessible)
+        paper -= accessible
+        accessible = {loc for loc in paper if number_of_neighbours(loc, paper) < 4}
+    print(f"Part 2 Answer: {total}")
 
 
 if __name__ == "__main__":
