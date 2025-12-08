@@ -31,6 +31,16 @@ def get_beams_from_splitter(x: int, y: int) -> set:
     return {(x - 1, y), (x + 1, y)}
 
 
+def split_beam(splitters, beams, beam) -> None:
+    splitter = get_splitter_hit_by_beam(splitters, beam)
+    if not splitter:
+        return
+    new_beams = get_beams_from_splitter(*splitter.pop())
+    for new_beam in new_beams:
+        beams[new_beam] = beams.get(new_beam, 0) + beams[beam]
+    del beams[beam]
+
+
 def main():
     start, splitters = process_data()
     s_dict = {}
@@ -45,6 +55,16 @@ def main():
         beams = {b for s in new_splits for b in get_beams_from_splitter(*s)}
 
     print(f"Part 1: {len(active_splits)}")
+
+    beams = {start: 1}
+    while True:
+        start_beams = beams.copy()
+        for beam in start_beams:
+            split_beam(s_dict, beams, beam)
+        if beams == start_beams:
+            break
+
+    print(f"Part 2: {sum(beams.values())}")
 
 
 if __name__ == "__main__":
