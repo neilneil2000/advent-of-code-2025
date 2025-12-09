@@ -7,13 +7,17 @@ def get_area(a, b):
     return x * y
 
 
-def main():
-    corners = list(
+def process_input():
+    return list(
         map(
             lambda x: (int(x[0]), int(x[1])),
             map(lambda x: x.split(","), input_data.splitlines()),
         )
     )
+
+
+def main():
+    corners = process_input()
     best = 0
     for i, a in enumerate(corners):
         for b in corners[i:]:
